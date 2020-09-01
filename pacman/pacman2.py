@@ -7,6 +7,7 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600), 0)
 
 fonte = pygame.font.SysFont("arial", 24, True, False)
+# fonte2 = pygame.font.SysFont("arial", 15, True, False)
 
 AMARELO = (255, 255, 0)
 PRETO = (0, 0, 0)
@@ -98,6 +99,16 @@ class Cenario(ElementoJogo):
         tela.blit(img_pontos, (pontos_x, 50))
         vidas_img = fonte.render("Vidas: {}".format(self.vidas), True, AMARELO)
         tela.blit(vidas_img, (pontos_x, 100))
+        
+##        linha_img = fonte2.render("Versão Customizada", True, (0, 120, 255))
+##        tela.blit(linha_img, (pontos_x, 150))
+##        linha_img = fonte2.render("para", True, (0, 120, 255))
+##        tela.blit(linha_img, (pontos_x, 170))
+##        linha_img = fonte2.render("Guilherme", True, (0, 120, 255))
+##        tela.blit(linha_img, (pontos_x, 190))
+##        linha_img = fonte2.render("da Silva Vieira", True, (0, 120, 255))
+##        tela.blit(linha_img, (pontos_x, 210))
+     
   
     def pintar_linha(self, tela, numero_linha, linha):
         for numero_coluna, coluna in enumerate(linha):
@@ -302,7 +313,7 @@ class Pacman(ElementoJogo, Movivel):
 ##        pygame.draw.polygon(tela, PRETO, pontos, 0)
 ##        pygame.draw.circle(tela, PRETO, (olho_x, olho_y), olho_raio, 0)
 
-class Fantasma(ElementoJogo):
+class Fantasma(ElementoJogo, Movivel):
     def __init__(self, cor, tamanho):
         self.coluna = 13.0
         self.linha = 15.0
@@ -414,7 +425,7 @@ if __name__ == "__main__":
 ##            if e.type == pygame.QUIT:
 ##                exit()
         # pacman.processar_eventos_mouse(eventos)
-        pacman.processar_eventos(eventos)
+        #pacman.processar_eventos(eventos)
        
             
         
